@@ -1,0 +1,40 @@
+
+🔹 Product-Level Aggregations
+1. Product Monthly Sales
+{ FIXED [Product], DATETRUNC('month',[Order_Date]) :
+    SUM([Total_Sales])
+}
+
+2. Product Total Sales
+{ FIXED [Product] :
+    SUM([Total_Sales])
+}
+
+🔹 Category & Brand Metrics
+3. Category Total Sales
+{ FIXED [Category] :
+    SUM([Total_Sales])
+}
+
+4. Brand Total Sales
+{ FIXED [Brand] :
+    SUM([Total_Sales])
+}
+
+🔹 Customer-Level Metrics
+5. Customer Lifetime Sales
+{ FIXED [Customer_Name] :
+    SUM([Total_Sales])
+}
+
+6. Orders per Customer
+{ FIXED [Customer_Name] :
+    COUNTD([Order_Number])
+}
+
+🔹 Margin Risk Counts
+7. Low Margin Product Count
+{ FIXED [Product] :
+    IF SUM([Total_Sales]) - SUM([Total_Cost]) < 0.10 * SUM([Total_Sales])
+    THEN 1 ELSE 0 END
+}
