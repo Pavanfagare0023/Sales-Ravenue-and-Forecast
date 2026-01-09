@@ -1,0 +1,98 @@
+
+1. Total Sales
+SUM([Total_Sales])
+
+2. Total Cost
+SUM([Total_Cost])
+
+3. Total Profit
+SUM([Total_Sales]) - SUM([Total_Cost])
+
+4. Profit Margin %
+(SUM([Total_Sales]) - SUM([Total_Cost])) / SUM([Total_Sales])
+
+🔹 Time Intelligence Metrics
+5. Current Year Flag
+YEAR([Order_Date]) = YEAR(TODAY())
+
+6. Previous Year Flag
+YEAR([Order_Date]) = YEAR(TODAY()) - 1
+
+7. CY Sales
+SUM(
+    IF YEAR([Order_Date]) = YEAR(TODAY())
+    THEN [Total_Sales]
+    END
+)
+
+8. PY Sales
+SUM(
+    IF YEAR([Order_Date]) = YEAR(TODAY()) - 1
+    THEN [Total_Sales]
+    END
+)
+
+9. CY Profit
+SUM(
+    IF YEAR([Order_Date]) = YEAR(TODAY())
+    THEN [Total_Sales] - [Total_Cost]
+    END
+)
+
+10. PY Profit
+SUM(
+    IF YEAR([Order_Date]) = YEAR(TODAY()) - 1
+    THEN [Total_Sales] - [Total_Cost]
+    END
+)
+
+🔹 Volume Metrics
+11. Total Quantity
+SUM([Quantity])
+
+12. Total Orders
+COUNTD([Order_Number])
+
+13. Total Customers
+COUNTD([Customer_Name])
+
+🔹 Per-Unit Efficiency Metrics
+14. Sales per Customer
+SUM([Total_Sales]) / COUNTD([Customer_Name])
+
+15. Sales per Order
+SUM([Total_Sales]) / COUNTD([Order_Number])
+
+🔹 Growth & Comparison Metrics
+16. YoY Sales Growth %
+(SUM([CY Sales]) - SUM([PY Sales])) / SUM([PY Sales])
+
+17. YoY Profit Growth %
+(SUM([CY Profit]) - SUM([PY Profit])) / SUM([PY Profit])
+
+🔹 Discount & Pricing Metrics
+18. List Price (Derived)
+[Total_Sales] / (1 - [Discount])
+
+19. Discount Amount
+[List Price] - [Total_Sales]
+
+20. Discount %
+([List Price] - [Total_Sales]) / [List Price]
+
+🔹 Margin Risk Classification
+21. Low Margin Flag
+IF [Profit Margin %] < 0.10 THEN "Low Margin" ELSE "Healthy Margin" END
+
+🔹 Order Status Metrics
+22. Completed Orders %
+COUNTD(IF [Status] = "Completed" THEN [Order_Number] END)
+/ COUNTD([Order_Number])
+
+23. Pending Orders %
+COUNTD(IF [Status] = "Pending" THEN [Order_Number] END)
+/ COUNTD([Order_Number])
+
+24. Cancelled Orders %
+COUNTD(IF [Status] = "Cancelled" THEN [Order_Number] END)
+/ COUNTD([Order_Number])
