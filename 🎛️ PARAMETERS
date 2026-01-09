@@ -1,0 +1,28 @@
+
+🔹 1. Metric Selector
+
+      Purpose: Dynamic KPI switching
+      Data Type: String    
+      Values:    
+      Sales    
+      Profit    
+      Quantity    
+      Orders
+
+🔹 2. Forecast Horizon (Months)
+
+      Data Type: Integer      
+      Range: 1–12      
+      Default: 6
+
+🔹 3. Top N Products
+
+      Data Type: Integer   
+      Range: 5–20 
+      Default: 10            
+
+🔹 4. Assumed Discount %
+
+      Data Type: Float      
+      Range: 0–0.50      
+      Default: 0.10
