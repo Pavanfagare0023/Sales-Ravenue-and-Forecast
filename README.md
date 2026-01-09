@@ -1,8 +1,8 @@
-📁 tableau-sales-forecast/
+📁 tableau:-Sales_Revenue_and_Forecast/
 │
 ├── 📄 README.md
 ├── 📁 dashboards/
-│   └── Sales_Trend_Product_Forecast.twbx
+│   └── Sales_Revenue_and_Forecast.twbx
 ├── 📁 documentation/
 │   ├── kpi_definitions.md
 │   ├── calculations_lod.md
