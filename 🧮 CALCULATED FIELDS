@@ -1,4 +1,4 @@
-
+🔹 Core Financial Metrics
 1. Total Sales
 SUM([Total_Sales])
 
@@ -96,3 +96,17 @@ COUNTD(IF [Status] = "Pending" THEN [Order_Number] END)
 24. Cancelled Orders %
 COUNTD(IF [Status] = "Cancelled" THEN [Order_Number] END)
 / COUNTD([Order_Number])
+
+🔹 Metrics
+25. Metric Selector Calculation
+CASE [Metric Selector]
+WHEN "Sales" THEN SUM([Total_Sales])
+WHEN "Profit" THEN SUM([Total_Sales]) - SUM([Total_Cost])
+WHEN "Quantity" THEN SUM([Quantity])
+WHEN "Orders" THEN COUNTD([Order_Number])
+END
+
+🔹 RANK
+26. Top N Filter Calculation
+    RANK(SUM([Total_Sales])) <= [Top N Products]
+
