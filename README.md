@@ -5,7 +5,7 @@
 ├── 📁 dashboards/
 │   └── Sales_Revenue_and_Forecast.twbx
 ├── 📁 documentation/
-│   ├── kpi_definitions.md
+│   ├── parameters.md
 │   ├── calculations_lod.md
 │   └── dashboard_logic.md
 └
